@@ -9,9 +9,9 @@ class Punkt
 public:
 	Punkt(Punkt& p);
 	Punkt(float x_ = 0, float y_ = 0);
-	void dodaj(Punkt& p);//dodaje do siebie wspó³rzêdne punktu p (dodawanie wektorów w przestrzeni 2d )
+	void dodaj(Punkt& p);//dodaje do siebie wspÃ³Â³rzÃªdne punktu p (dodawanie wektorÃ³w w przestrzeni 2d )
 	void dodaj(Punkt* p);
-	void drukuj();// drukuje swoje wspó³rzêdne
+	void drukuj();// drukuje swoje wspÃ³Â³rzÃªdne
 	bool porownaj(Punkt& p);
 	Punkt& operator+=(Punkt& p);
 	Punkt& operator=(const Punkt& p);
@@ -58,11 +58,11 @@ std::string Punkt::pobierz_dane()
 class Tablica
 {
 	Punkt* w;
-	int dl; // dlugoœæ Tablicy
+	int dl; // dlugoÅ“Ã¦ Tablicy
 public:
-	Tablica(int dl = 0); // tworzy Tablice o zadanej d³ugoœci i wype³nia punktami (0,0)
-	Tablica(Tablica& w_); //inicjalizacja za pomoc¹ Tablicy w_
-	Tablica(float* x, float* y, int dl); // inicjalizacja tablicy punktów tablicami x -ów i y -ów
+	Tablica(int dl = 0); // tworzy Tablice o zadanej dÂ³ugoÅ“ci i wypeÂ³nia punktami (0,0)
+	Tablica(Tablica& w_); //inicjalizacja za pomocÂ¹ Tablicy w_
+	Tablica(float* x, float* y, int dl); // inicjalizacja tablicy punktÃ³w tablicami x -Ã³w i y -Ã³w
 	~Tablica();
 	void dodaj(const Tablica& w_);// dodaje do siebie Tablice w_
 	bool porownaj(const Tablica& w);// porownnaie z Tablica w_;
@@ -215,7 +215,7 @@ int main()
 	a = Punkt(8, 5);
 	a.drukuj();
 	if (a == Punkt(8, 5))
-		std::cout << "HEHUEHEU\n";
+		std::cout << "Punkty sa rowne"\n";
 	a = b + c;
 	a.drukuj();
 	std::cout << a << std::endl;
