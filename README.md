@@ -1,1 +1,3 @@
-# polsl-aei-pk3-gr21-PGolkowksi
+Przemysław Gołkowski
+
+Symulacja wychodzenia żółwia z labiryntu
