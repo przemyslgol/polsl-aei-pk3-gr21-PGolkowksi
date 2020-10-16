@@ -222,7 +222,7 @@ public:
 	void drukuj();
 	bool porownaj(const Punkt& p) const;
 	bool operator==(const Punkt& p) const;
-	float getDlugosc();
+	float getDlugosc() const;
 };
 
 Wektor::Wektor(float x_, float y_) : Punkt(x_, y_), dlugosc(sqrt(x_ * x_ + y_ * y_)), kierunek(atan(y_ / x_)) {}
@@ -259,7 +259,7 @@ bool Wektor::operator==(const Punkt& p) const
 	return Punkt::porownaj(p);
 }
 
-float Wektor::getDlugosc()
+float Wektor::getDlugosc() const
 {
 	return dlugosc;
 }
@@ -308,7 +308,8 @@ public:
 	TabWektorowSort(int dl_);
 	TabWektorowSort(float* x, float* y, int dl_);
 	void sortuj(int dl_);
-	void wstaw(Wektor& wek);
+	void wstaw(const Wektor& wek);
+	TabWektorowSort& operator=(const Wektor& wek);
 };
 
 TabWektorowSort::TabWektorowSort(int dl_) : TablicaWektorow(dl_) 
@@ -337,7 +338,7 @@ void TabWektorowSort::sortuj(int dl_)
 	}
 }
 
-void TabWektorowSort::wstaw(Wektor& wek)
+void TabWektorowSort::wstaw(const Wektor& wek)
 {
 	Wektor* nowaTablica = new Wektor[dl + 1];
 	int i = 0;
@@ -352,6 +353,12 @@ void TabWektorowSort::wstaw(Wektor& wek)
 		nowaTablica[i] = w[i-1];
 	delete[] w;
 	w = nowaTablica;
+}
+
+TabWektorowSort& TabWektorowSort::operator=(const Wektor& wek)
+{
+	wstaw(wek);
+	return *this;
 }
 
 int main()
@@ -370,6 +377,6 @@ int main()
 	tabSort.drukuj();
 	tabSort.wstaw(b);
 	tabSort.drukuj();
-	tabSort.wstaw(a);
+	tabSort = Wektor(32, 89);
 	tabSort.drukuj();
 }
